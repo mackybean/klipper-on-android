@@ -59,23 +59,23 @@
           - **Enable**: `yes`
           - **Mount points**: press on the "+" button
             - Source: `/data/data/com.octo4a/files`
-            - Target: `/home/android/octo4a`
-    - `/home/android/octo4a/serialpipe` is the serial port you need to use in your `printer.cfg`
+            - Target: `/home/mac/octo4a`
+    - `/home/mac/octo4a/serialpipe` is the serial port you need to use in your `printer.cfg`
 - Make the serial device accessible to Klipper:
     ```bash
     sudo chmod 777 /dev/ttyACM0
     # or 
     sudo chmod 777 /dev/ttyUSB0
     # or 
-    sudo chmod 777 /home/android/octo4a/serialpipe
+    sudo chmod 777 /home/mac/octo4a/serialpipe
     ```
 - Install the init and xterm scripts from this gist:  
   ```bash
-  sudo wget -O /etc/default/klipper https://raw.githubusercontent.com/d4rk50ul1/klipper-on-android/main/scripts/etc_default_klipper
-  sudo wget -O /etc/init.d/klipper https://raw.githubusercontent.com/d4rk50ul1/klipper-on-android/main/scripts/etc_init.d_klipper
-  sudo wget -O /etc/default/moonraker https://raw.githubusercontent.com/d4rk50ul1/klipper-on-android/main/scripts/etc_default_moonraker
-  sudo wget -O /etc/init.d/moonraker https://raw.githubusercontent.com/d4rk50ul1/klipper-on-android/main/scripts/etc_init.d_moonraker
-  sudo wget -O /usr/local/bin/xterm https://raw.githubusercontent.com/d4rk50ul1/klipper-on-android/main/scripts/usr_local_bin_xterm
+  sudo wget -O /etc/default/klipper https://raw.githubusercontent.com/mackybean/klipper-on-android/main/scripts/etc_default_klipper
+  sudo wget -O /etc/init.d/klipper https://raw.githubusercontent.com/mackybean/klipper-on-android/main/scripts/etc_init.d_klipper
+  sudo wget -O /etc/default/moonraker https://raw.githubusercontent.com/mackybean/klipper-on-android/main/scripts/etc_default_moonraker
+  sudo wget -O /etc/init.d/moonraker https://raw.githubusercontent.com/mackybean/klipper-on-android/main/scripts/etc_init.d_moonraker
+  sudo wget -O /usr/local/bin/xterm https://raw.githubusercontent.com/mackybean/klipper-on-android/main/scripts/usr_local_bin_xterm
   
   sudo chmod +x /etc/init.d/klipper 
   sudo chmod +x /etc/init.d/moonraker 
@@ -94,10 +94,10 @@
 
 ## Misc
 You can start/stop Klipper and Moonraker manually by using the `service` command (eg: `sudo service start klipper`).  
-Logs can be found in `/home/android/klipper_logs`.
+Logs can be found in `/home/mac/klipper_logs`.
 
 ## Telegram Bot
-You can find the instructions how to setup the Telegram Bot [here](https://github.com/d4rk50ul1/klipper-on-android/blob/main/telegram_instructions.md)
+You can find the instructions how to setup the Telegram Bot [here](https://github.com/mackybean/klipper-on-android/blob/main/telegram_instructions.md)
 
 ## Troubleshooting (ongoing section based on comments)
 - There might be the case that when accessing Mainsail through Browser, you get an error message and no connection to moonraker: mainsail Permission denied while connecting to upstream in `klipper_logs/mainsail_error.log`. To fix this you must change the file `/etc/nginx/nginx.conf`, change `user www-data;` to `user android;` 
